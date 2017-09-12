@@ -26,13 +26,13 @@
       console.log('user disconnected');
     });
 
-	socket.on('chat message', function(msg, time){
-	  time = edon.DateTime();
-	  user = socket.handshake.headers.referer;
+    socket.on('chat message', function(msg){
+      time = edon.DateTime();
+      user = socket.handshake.headers.referer;
       user = user.replace('http://bdprescott.ddns.net:8081/?username=', '');
       console.log(user + ': ' + msg );
-	  io.emit('chat message', user + ': ' + msg );
-	  fs.appendFile('chatlog.txt', time + ' - ' + user + ': ' + msg + '\n');
+      io.emit('chat message', user + ': ' + msg );
+      fs.appendFile('chatlog.txt', time + ' - ' + user + ': ' + msg + '\n');
     });
   });
 
