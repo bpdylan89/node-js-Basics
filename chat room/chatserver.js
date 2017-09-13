@@ -28,11 +28,12 @@
 
     socket.on('chat message', function(msg){
       time = edon.DateTime();
-      user = socket.handshake.headers.referer;
-      user = user.replace('http://bdprescott.ddns.net:8081/?username=', '');
-      console.log(user + ': ' + msg );
+      var useraddress = socket.handshake.address;
+      var user = socket.handshake.headers.referer;
+      var user = user.replace('http://bdprescott.ddns.net:8081/?username=', '');
+      console.log(useraddress + ' - ' + user + ': ' + msg );
       io.emit('chat message', user + ': ' + msg );
-      fs.appendFile('chatlog.txt', time + ' - ' + user + ': ' + msg + '\n');
+      fs.appendFile('chatlog.txt', time + ' - ' + useraddress + ' - ' + user + ': ' + msg + '\n');
     });
   });
 
