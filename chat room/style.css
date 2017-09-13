@@ -1,6 +1,7 @@
 		body { 
 			font: 13px Helvetica, Arial; 
-			box-sizing: border-box; 
+			box-sizing: border-box;
+			background: #eee; 			
 		}
 			
 		h1 {
@@ -16,29 +17,38 @@
 			bottom: -15;
 			left: -5;			
 			width: 100%; 
+			min-width:300px;
+			padding-left:10%;
+			margin-right:7%;
 		}
 			  
 		form input { 
 			border: 0; 
-			padding: 10px; 
-			width: 90%; 
+			padding: 10px;	
+			width: 70%; 
 			height: 4em;
+			border-radius: 5px 0 0 5px;
+			border-right: 1px solid #000;
 		}
 			  
 		form button {  
 			background: rgb(130, 224, 255); 
 			border: none; 
 			padding: 10px;
-			width: 9%;			
+			width: 9%;	
+			min-width:50px;
 			height: 4em;
+			overflow:show;
+			border-radius: 0 5px 5px 0;
 			}
 			  
 		#thread {
+			background: white; 
 			list-style-type: none;  
 			margin-left: auto;
 			margin-right: auto;
 			width:80%;
-			height:80%;
+			height:70%;
 			float:center;
 			border:1px solid black;
 			overflow-y:scroll;
@@ -48,5 +58,6 @@
 			padding-top: 5px; 
 			margin-left: -30px;
 			width: 100%;
-			overflow-wrap: break-word;
+			overflow-wrap: word-break;
+			word-break: break-all;
 		}
