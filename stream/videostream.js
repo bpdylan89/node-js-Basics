@@ -15,12 +15,12 @@ http.createServer(function (req, res) {
       var start = parseInt(positions[0], 10);
       var total = stats.size;
       var end = positions[1] ? parseInt(positions[1], 10) : total - 1;
-      var chunksize = (end - start) + 1;
+      var nuggetsize = (end - start) + 1;
 
       res.writeHead(206, {
         "Content-Range": "bytes " + start + "-" + end + "/" + total,
         "Accept-Ranges": "bytes",
-        "Content-Length": chunksize,
+        "Content-Length": nuggetsize,
         "Content-Type": "video/mp4"
       });
 
