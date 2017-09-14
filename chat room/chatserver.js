@@ -1,11 +1,11 @@
-  var express = require('express');
-  var app = express();
-  var server = require('http').createServer(app);
-  var io = require('socket.io')(server);
-  var fs = require('fs');
-  var http = require('http');
-  var url = require('url');
-  var edon = require('./newnode.js');
+  var express = require('express'),
+      app = express(),
+      server = require('http').createServer(app),
+      io = require('socket.io')(server),
+      fs = require('fs'),
+      http = require('http'),
+      url = require('url'),
+      edon = require('./newnode.js');
   
 
   app.get('/', function(req, res, next) {
