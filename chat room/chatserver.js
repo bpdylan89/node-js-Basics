@@ -32,7 +32,7 @@
       var user = socket.handshake.headers.referer;
       var user = user.replace('http://bdprescott.ddns.net:8081/?username=', '');
       console.log(useraddress + ' - ' + user + ': ' + msg );
-      io.emit('chat message', user + ': ' + msg );
+      io.emit('chat message', { tme: time, usr: user, txt: msg } );
       fs.appendFile('chatlog.txt', time + ' - ' + useraddress + ' - ' + user + ': ' + msg + '\n');
     });
   });
