@@ -25,7 +25,8 @@
 			  return false;
 			});
 			socket.on('chat message', function(msg){
-			  $('#thread').append($('<li>').text(msg));
+			  var messages = msg.tme + " | " + msg.usr + ": " + msg.txt;
+			  $('#thread').append($('<li>').text(messages));
 			  $('#thread').scrollTop($('#thread').height())
 			});
 		  });
