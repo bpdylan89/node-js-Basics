@@ -2,10 +2,79 @@
     <head>
       <title> Chatroom Messenger </title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="stylesheet" type="text/css" href="http://bdprescott.ddns.net/style.css" />
+<style>
+		body { 
+			font: 13px Helvetica, Arial; 
+			box-sizing: border-box;
+			background-image: url('https://www.photocase.com/photos/1345311-stars-sky-nature-beautiful-landscape-earth-uniqueness-photocase-stock-photo-large.jpeg');
+	                background-repeat: no-repeat;
+                        background-attachment: fixed;
+                        background-size: cover;
+	                width:100%;			
+		}
+			
+		img {
+			padding-top:20px;
+			height:10%;
+		}
+	
+		form { 
+			background: #000; 
+			padding: 15px; 
+			position: fixed;
+			bottom: -15;
+			left: -5;			
+			width: 100%; 
+			min-width:300px;
+			padding-left:10%;
+			margin-right:7%;
+		}
+			  
+		form input { 
+			border: 0; 
+			padding: 10px;	
+			width: 70%; 
+			height: 4em;
+			border-radius: 3px 0 0 3px;
+			border-right: 1px solid #000;
+		}
+			  
+		form button {  
+			background: #0098cb; 
+			border: none; 
+			padding: 10px;
+			width: 9%;	
+			min-width:50px;
+			height: 4em;
+			overflow:show;
+                        color: white;
+			border-radius: 0 3px 3px 0;
+			}
+			  
+		#thread {
+			background: white; 
+			list-style-type: none;  
+			margin-left: auto;
+			margin-right: auto;
+			width:80%;
+			height:70%;
+			border:1px solid black;
+			overflow-y:scroll;
+                        opacity: 0.9;
+		}
+			  
+		#thread li { 
+			padding-top: 5px; 
+			margin-left: -30px;
+			width: 100%;
+			overflow-wrap: word-break;
+			word-break: break-all;
+		}
+</style>
     </head>
     <body>
-        <h1> Chatroom Messenger </h1>
+        <center><img src="http://www.bpdylan89.x10host.com/images/bpdylan89.png" /></center>
+
         <form>
             <input id="message" autocomplete="off" /><button>Send</button>
         </form>
@@ -25,7 +94,7 @@
 			  return false;
 			});
 			socket.on('chat message', function(msg){
-			  var messages = msg.tme + " | " + msg.usr + ": " + msg.txt;
+			  var messages = msg.usr + ": " + msg.txt;
 			  $('#thread').append($('<li>').text(messages));
 			  $('#thread').scrollTop($('#thread').height())
 			});
