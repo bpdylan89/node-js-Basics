@@ -1,4 +1,4 @@
-  var express = require('express'),
+var express = require('express'),
       app = express(),
       server = require('http').createServer(app),
       io = require('socket.io')(server),
@@ -30,14 +30,13 @@
       time = edon.DateTime();
       var useraddress = socket.handshake.address;
       var user = socket.handshake.headers.referer;
-      var user = user.replace('http://bdprescott.ddns.net:8081/?username=', '');
+      var user = user.replace('http://bdprescott.ddns.net:8090/?username=', '');
       console.log(useraddress + ' - ' + user + ': ' + msg );
-      io.emit('chat message', { tme: time, usr: user, txt: msg } );
+      io.emit('chat message', { usr: user, txt: msg } );
       fs.appendFile('chatlog.txt', time + ' - ' + useraddress + ' - ' + user + ': ' + msg + '\n');
     });
   });
 
-  server.listen(8081, function(){
-    console.log('listening on *:8081');
+  server.listen(8090, function(){
+    console.log('listening on *:8090');
   });
- 
